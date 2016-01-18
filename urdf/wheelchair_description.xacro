@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
 
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="wheelchair">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="wheelchair">  
+
+  <xacro:include filename="$(find baxter_wheelchair_description)/urdf/sensors/kinect_camera.urdf.xacro" />
+
   <xacro:property name="PI" value="3.14159265359" />
+  <xacro:property name="M_PI" value="3.1415926535897931" />
 
   <xacro:property name="chair_width" value="0.643" /> <!-- From front wheel right joint to front wheel left joint -->
   <xacro:property name="chair_length" value="0.812" /> <!-- From front wheel joint to back wheel joint -->
@@ -16,6 +20,14 @@
   <xacro:property name="small_wheel_radius" value=".089" />
   <xacro:property name="small_wheel_length" value=".05" />
   <xacro:property name="small_wheel_weight" value="1.0" />
+
+  <!-- Kinect Camera Location (Nominally 0) -->
+  <xacro:property name="cal_kinect_x" value="0.0" />
+  <xacro:property name="cal_kinect_y" value="0.0" />
+  <xacro:property name="cal_kinect_z" value="0.0" />
+  <xacro:property name="cal_kinect_roll" value="0.0" />
+  <xacro:property name="cal_kinect_pitch" value="0.0" />
+  <xacro:property name="cal_kinect_yaw" value="0.0" />
 
   <xacro:macro name="box_intertia" params="height length width weight" >
     <inertia ixx="${1/12 * weight * (height + length)}" ixy="0" ixz="0" iyy="${1/12 * weight * (width + length)}" iyz="0" izz="${1/12 * weight * (width + height)}" />
@@ -60,6 +72,11 @@
       <xacro:box_intertia height="${chair_height}" length="${chair_length}" width="${chair_width}" weight="${chair_weight}" />
     </inertial>
   </link>
+
+  <!-- Base of Kinect Mount -->
+  <xacro:kinect_camera_v0 name="kinect_camera" parent="base_link" >
+    <origin xyz="${chair_length/2 - 0.02} 0 ${chair_height/2 + 0.05}" rpy="0 0 0" />
+  </xacro:kinect_camera_v0>
 
   <link name="imu_link">
     <inertial>

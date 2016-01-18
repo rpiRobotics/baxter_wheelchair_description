@@ -13,10 +13,9 @@
     <wheelDiameter>${main_wheel_radius*2}</wheelDiameter>
     <torque>20</torque>
     <commandTopic>cmd_vel</commandTopic>
-    <odometryTopic>odom_temp</odometryTopic>
-    <odometryFrame>odom_temp</odometryFrame>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
     <robotBaseFrame>base_footprint</robotBaseFrame>
-    <publishTf>0</publishTf>
   </plugin>
 </gazebo>
 

@@ -12,7 +12,7 @@
   </xacro:include>
 
   <!-- <xacro:property name="chair_height" value="1.191" /> --> <!-- From front wheel joint to head rest -->
-  <xacro:property name="chair_height" value="0.7" /> <!-- From front wheel joint to approx height -->
+  <xacro:property name="chair_height" value="0.4" /> <!-- From front wheel joint to approx height -->
 
   <!-- Link Baxter Base to Wheelchair -->
   <joint name="wheelchair_to_baxter" type="fixed">

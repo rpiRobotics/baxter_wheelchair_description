@@ -10,7 +10,7 @@
   <xacro:property name="chair_width" value="0.643" /> <!-- From front wheel right joint to front wheel left joint -->
   <xacro:property name="chair_length" value="0.812" /> <!-- From front wheel joint to back wheel joint -->
   <!-- <xacro:property name="chair_height" value="1.191" /> --> <!-- From front wheel joint to head rest -->
-  <xacro:property name="chair_height" value="0.7" /> <!-- From front wheel joint to approx height -->
+  <xacro:property name="chair_height" value="0.4" /> <!-- From front wheel joint to approx height -->
   <xacro:property name="chair_weight" value="10.0" />
   
   <xacro:property name="main_wheel_length" value="0.065" />
@@ -48,7 +48,7 @@
 
   <joint name="base_footprint_joint" type="fixed">
     <!-- <origin xyz=" 0 0 0.7" rpy="0 0 0"/> -->
-    <origin xyz=" 0 0 0.45" rpy="0 0 0"/> <!-- accomodating for change in chair height -->
+    <origin xyz=" 0 0 0.3" rpy="0 0 0"/> <!-- accomodating for change in chair height -->
     <parent link="base_footprint"/>
     <child link="base_link"/>
   </joint>

@@ -16,7 +16,7 @@
 
   <!-- Link Baxter Base to Wheelchair -->
   <joint name="wheelchair_to_baxter" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 ${chair_height/2 + 0.05}" />
+    <origin rpy="0 0 0" xyz="-0.1 0 ${chair_height/2 + 0.05}" />
     <parent link="base_link" />
     <child link="base" />
   </joint>
